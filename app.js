@@ -4,8 +4,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 
 // Routes
-const users = require('./api/routes/users');
-const affiliates = require('./api/routes/affiliates');
+const users = require('./api/routes/user-routes');
+const affiliates = require('./api/routes/affiliate-routes');
 
 // Create express app
 const app = express();

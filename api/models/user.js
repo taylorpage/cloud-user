@@ -9,13 +9,6 @@ const UserSchema = new Schema({
 });
 
 // User model
-const UserModel = mongoose.model('User', UserSchema);
-
-// User constructor
-const User = (userData) => {
-  return UserModel.create(userData, (err, instance) => {
-    return err ? err : instance;
-  });
-}
+const User = mongoose.model('User', UserSchema);
 
 module.exports = User;

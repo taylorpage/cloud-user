@@ -4,18 +4,10 @@ const Schema = mongoose.Schema;
 // Affiliate schema
 const AffiliateSchema = new Schema({
   email: String,
-  password: String,
-  affiliateId: String
+  password: String
 });
 
 // Affiliate model
-const AffiliateModel = mongoose.model('Affiliate', AffiliateSchema);
-
-// Affiliate constructor
-const Affiliate = (affiliateData) => {
-  return AffiliateModel.create(affiliateData, (err, instance) => {
-    return err ? err : instance;
-  });
-}
+const Affiliate = mongoose.model('Affiliate', AffiliateSchema);
 
 module.exports = Affiliate;
