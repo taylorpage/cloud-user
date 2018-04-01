@@ -12,6 +12,7 @@
     "mongo": "^0.1.0",
     "mongod": "^2.0.0",
     "mongodb": "^3.0.5",
-    "mongoose": "^5.0.12"
+    "mongoose": "^5.0.12",
+    "node-uuid": "^1.4.8"
   }
 }
