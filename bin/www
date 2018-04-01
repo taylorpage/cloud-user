@@ -30,7 +30,6 @@ const server = http.createServer(app);
  */
 
 mongoose.connect(`mongodb://${hostname}:${dbport}/${dbname}`);
-mongoose.set('debug', true);
 
 /**
  * Listen on provided port, on all network interfaces.

@@ -3,24 +3,22 @@ const saltRounds = 8;
 
 // Encrypt a password for storage
 const encryptPassword = (password) => {
-	let encryptedPassword;
 
-	// Create password hash using salt
-	bcrypt.hash(password, saltRounds)
-		.then(hash => encryptedPassword = hash)
-		.catch(err => console.log(err));
+  // Create password hash using salt
+  const salt = bcrypt.genSaltSync(saltRounds);
+  const hash = bcrypt.hashSync(password, salt);
 
-	return encryptedPassword;
+	return hash;
 };
 
 // Checks password with stored hash
 const validatePassword = (password, hash) => {
-	let valid = false;
 
 	// Compare given password with stored hash
-	bcrypt.compare(password, hash)
-		.then(res => valid = res)
-		.catch(err => console.log(err));
+	return bcrypt.compareSync(password, hash);
+};
 
-	return valid;
-}
+module.exports = {
+	encryptPassword,
+	validatePassword
+};
