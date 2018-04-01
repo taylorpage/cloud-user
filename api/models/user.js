@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   email: String,
   password: String,
-  affiliate: String
+  affiliateUUID: String
 });
 
 // User model

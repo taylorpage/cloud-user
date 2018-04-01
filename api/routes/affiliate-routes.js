@@ -9,9 +9,8 @@ router.get('/', (req, res, next) => {
   res.send({ affiliates: [{name: 'Company A'}] });
 });
 
+// Create affiliate endpoint
 router.post('/', (req, res, next) => {
-
-  // Create affiliate and save it
   const promise = createAffiliate(req.body)
     .then(affiliate => {
       res.send({
