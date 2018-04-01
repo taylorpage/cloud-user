@@ -9,8 +9,11 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  res.json({ affiliate: createAffiliate(req.affiliate) });
-});
 
+  // Create affiliate and save it
+  const promise = createAffiliate(req.body)
+    .then(affiliate => res.json({ affiliate: affiliate }));
+
+});
 
 module.exports = router;

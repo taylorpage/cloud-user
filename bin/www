@@ -7,7 +7,7 @@
 const app = require('../app');
 const debug = require('debug')('cloud-user:server');
 const http = require('http');
-const mongodb = require('mongodb');
+const mongoose = require('mongoose');
 const dbname = 'cloud-share-db';
 const dbport = '27017';
 
@@ -29,20 +29,16 @@ const server = http.createServer(app);
  * Connect the database
  */
 
-mongodb.MongoClient.connect(`mongodb://${hostname}:${dbport}/${dbname}`, (err, database) => {
+mongoose.connect(`mongodb://${hostname}:${dbport}/${dbname}`);
+mongoose.set('debug', true);
 
-  /**
-   * Listen on provided port, on all network interfaces.
-   */
+/**
+ * Listen on provided port, on all network interfaces.
+ */
 
-  err ? console.log(err) : startServer();
-});
-
-function startServer() {
-  server.listen(port);
-  server.on('error', onError);
-  server.on('listening', onListening);
-}
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
